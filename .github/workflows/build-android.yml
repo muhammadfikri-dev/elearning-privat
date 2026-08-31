@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build 5 Native Android APKs
 
 on:
   push:
@@ -7,18 +7,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-android:
-    name: Compile Android APK (PrivatGo)
+  build-native-apks:
+    name: Compile 5 Dedicated Native Android APKs
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Setup Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
 
       - name: Setup Java JDK 17
         uses: actions/setup-java@v4
@@ -34,22 +29,27 @@ jobs:
         with:
           gradle-version: 8.4
 
-      - name: Install Node Dependencies
-        run: npm install
-
-      - name: Build Web Application
-        run: npm run build
-
-      - name: Synchronize Capacitor Android
-        run: npx cap sync android || true
-
-      - name: Compile Android APK
+      - name: Compile 5 Flavor APKs with Native Gradle
         working-directory: android
         run: gradle assembleDebug --stacktrace
 
-      - name: Upload Android APK Artifact
+      - name: Organize APK Files
+        run: |
+          mkdir -p final-apks
+          find android/app/build/outputs/apk -name "*.apk" -exec cp {} final-apks/ \;
+          ls -la final-apks/
+
+      - name: Upload 5 Native APKs Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: PrivatGo-Android-APK
-          path: android/app/build/outputs/apk/debug/*.apk
+          name: PrivatGo-5-Native-APKs
+          path: final-apks/*.apk
           retention-days: 30
+
+      - name: Attach 5 APKs to GitHub Release v1.0.0
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          files: final-apks/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

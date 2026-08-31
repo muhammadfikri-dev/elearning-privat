@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_finance_home"
+        android:icon="@drawable/ic_home"
+        android:title="Keuangan" />
+    <item
+        android:id="@+id/nav_finance_invoices"
+        android:icon="@drawable/ic_payment"
+        android:title="Tagihan SPP" />
+    <item
+        android:id="@+id/nav_finance_payroll"
+        android:icon="@drawable/ic_assignment"
+        android:title="Gaji Tutor" />
+</menu>

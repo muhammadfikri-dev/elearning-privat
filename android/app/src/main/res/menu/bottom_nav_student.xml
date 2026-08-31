@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_student_home"
+        android:icon="@drawable/ic_home"
+        android:title="Beranda" />
+    <item
+        android:id="@+id/nav_student_schedule"
+        android:icon="@drawable/ic_calendar"
+        android:title="Jadwal" />
+    <item
+        android:id="@+id/nav_student_materials"
+        android:icon="@drawable/ic_book"
+        android:title="Modul" />
+    <item
+        android:id="@+id/nav_student_quiz"
+        android:icon="@drawable/ic_quiz"
+        android:title="Kuis" />
+    <item
+        android:id="@+id/nav_student_report"
+        android:icon="@drawable/ic_report"
+        android:title="Rapor" />
+</menu>

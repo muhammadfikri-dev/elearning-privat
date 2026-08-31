@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_tutor_home"
+        android:icon="@drawable/ic_home"
+        android:title="Studio" />
+    <item
+        android:id="@+id/nav_tutor_schedule"
+        android:icon="@drawable/ic_calendar"
+        android:title="Jadwal" />
+    <item
+        android:id="@+id/nav_tutor_grading"
+        android:icon="@drawable/ic_assignment"
+        android:title="Penilaian" />
+    <item
+        android:id="@+id/nav_tutor_materials"
+        android:icon="@drawable/ic_book"
+        android:title="Bahan Ajar" />
+</menu>

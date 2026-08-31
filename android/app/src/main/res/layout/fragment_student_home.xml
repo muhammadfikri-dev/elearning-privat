@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Welcome Gamification Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:strokeColor="@color/primary_brand_light"
+            app:strokeWidth="1dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selamat Belajar, Kevin Pratama! 👋"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Level 7 Scholar • 3.450 XP Belajar • 14 Hari Streak"
+                    android:textColor="@color/primary_brand_light"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:progress="70"
+                    app:indicatorColor="@color/primary_brand"
+                    app:trackColor="@color/bg_dark"
+                    app:trackCornerRadius="4dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Upcoming Sesi Les Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:strokeColor="@color/accent_emerald"
+            app:strokeWidth="1dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SESI LES BERIKUTNYA"
+                    android:textColor="@color/accent_emerald"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Turunan &amp; Aplikasi Maksimum Minimum"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Besok (16:00 - 17:30 WIB) • Kak Sarah Amalia, M.Sc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_join_meet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Masuk Ruang Kelas Google Meet"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/primary_brand"
+                    app:icon="@drawable/ic_video"
+                    app:cornerRadius="12dp"
+                    android:layout_marginTop="12dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
