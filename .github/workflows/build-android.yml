@@ -6,6 +6,9 @@ on:
     tags: [ 'v*' ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-native-apks:
     name: Compile 5 Dedicated Native Android APKs
@@ -51,5 +54,6 @@ jobs:
         with:
           tag_name: v1.0.0
           files: final-apks/*.apk
+          overwrite_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
