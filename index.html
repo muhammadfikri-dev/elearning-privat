@@ -2,24 +2,19 @@
 <html lang="id" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>PrivatGo - Platform E-Learning & Les Privat Terpadu</title>
-  <meta name="description" content="Aplikasi E-Learning dan Les Privat Interaktif untuk Siswa, Tutor, Orang Tua, Super Admin, dan Billing Keuangan." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>PrivatGo - Ekosistem Aplikasi Les Privat & E-Learning</title>
+  <meta name="description" content="Portal 5 Aplikasi Mandiri Terpisah: Siswa, Tutor, Orang Tua, Super Admin, dan Keuangan SPP." />
   
-  <!-- PWA & Mobile Web Meta -->
   <meta name="theme-color" content="#4F46E5" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="manifest" href="./manifest.json" />
   <link rel="icon" type="image/svg+xml" href="./assets/icons/logo.svg" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts & Tailwind -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -28,36 +23,161 @@
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace']
-          },
-          colors: {
-            primary: {
-              50: '#EEF2FF',
-              100: '#E0E7FF',
-              500: '#6366F1',
-              600: '#4F46E5',
-              700: '#4338CA',
-              900: '#312E81'
-            }
           }
         }
       }
     }
   </script>
 
-  <!-- Canvas Confetti Library for Quiz Celebration -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="./src/styles/custom.css" />
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
-  <!-- Main Application Mount Point -->
-  <div id="app"></div>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between antialiased selection:bg-indigo-500 selection:text-white">
+  
+  <!-- Header -->
+  <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md px-6 py-4 sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center shadow-lg shadow-indigo-500/20 font-black text-xl text-white">
+          P
+        </div>
+        <div>
+          <h1 class="text-base font-extrabold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+            PrivatGo App Suite
+          </h1>
+          <p class="text-[11px] text-slate-400">Pilih Aplikasi Sesuai Hak Akses</p>
+        </div>
+      </div>
 
-  <!-- Global Modal Mount Container -->
-  <div id="global-modal-container"></div>
+      <a href="https://github.com/muhammadfikri-dev/elearning-privat/releases/tag/v1.0.0" target="_blank" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-indigo-500 text-xs font-bold text-indigo-300 flex items-center gap-1.5 shadow-md no-underline">
+        <span>📱</span> Unduh APK Android (Releases)
+      </a>
+    </div>
+  </header>
 
-  <!-- App Entry Script -->
-  <script type="module" src="./src/app.js"></script>
+  <!-- App Cards Hub Container -->
+  <main class="max-w-5xl mx-auto px-4 py-8 flex-1 w-full space-y-6">
+    <div class="text-center space-y-2">
+      <h2 class="text-2xl md:text-3xl font-black text-white">
+        Ekosistem 5 Aplikasi Terpisah & Mandiri
+      </h2>
+      <p class="text-xs md:text-sm text-slate-400 max-w-xl mx-auto">
+        Setiap peran memiliki aplikasi khusus dengan antarmuka native, fitur fokus, dan tanpa penggabungan menu.
+      </p>
+    </div>
+
+    <!-- 5 Standalone App Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-4">
+      
+      <!-- App 1: Siswa -->
+      <a href="./apps/student/index.html" class="glass-card p-6 border border-indigo-500/30 hover:border-indigo-500 hover:scale-[1.02] transition-all no-underline block space-y-4 group">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-3xl group-hover:bg-indigo-600 transition-all text-white">
+          🎓
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-1 text-[10px] uppercase font-bold text-indigo-400 tracking-wider">
+            APK 1: com.privatgo.student
+          </div>
+          <h3 class="text-lg font-bold text-white mt-1 group-hover:text-indigo-300 transition-colors">PrivatGo Siswa</h3>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Aplikasi belajar murid: Modul PDF & Video, Live Class Google Meet/Zoom, Kuis berwaktu, pengumpulan tugas, presensi 100%, dan rapor SNBT.
+          </p>
+        </div>
+        <div class="pt-2 flex items-center justify-between text-xs text-indigo-400 font-bold">
+          <span>Buka Aplikasi Siswa</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- App 2: Tutor -->
+      <a href="./apps/tutor/index.html" class="glass-card p-6 border border-emerald-500/30 hover:border-emerald-500 hover:scale-[1.02] transition-all no-underline block space-y-4 group">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-600/20 border border-emerald-500/40 flex items-center justify-center text-3xl group-hover:bg-emerald-600 transition-all text-white">
+          👨‍🏫
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-1 text-[10px] uppercase font-bold text-emerald-400 tracking-wider">
+            APK 2: com.privatgo.tutor
+          </div>
+          <h3 class="text-lg font-bold text-white mt-1 group-hover:text-emerald-300 transition-colors">PrivatGo Tutor Studio</h3>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Aplikasi pengajar: Manajemen jadwal mengajar, bank materi, koreksi tugas & input nilai (0-100), log jurnal kehadiran, dan rapor siswa.
+          </p>
+        </div>
+        <div class="pt-2 flex items-center justify-between text-xs text-emerald-400 font-bold">
+          <span>Buka Aplikasi Tutor</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- App 3: Orang Tua -->
+      <a href="./apps/parent/index.html" class="glass-card p-6 border border-cyan-500/30 hover:border-cyan-500 hover:scale-[1.02] transition-all no-underline block space-y-4 group">
+        <div class="w-14 h-14 rounded-2xl bg-cyan-600/20 border border-cyan-500/40 flex items-center justify-center text-3xl group-hover:bg-cyan-600 transition-all text-white">
+          👨‍👩‍👧
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-1 text-[10px] uppercase font-bold text-cyan-400 tracking-wider">
+            APK 3: com.privatgo.parent
+          </div>
+          <h3 class="text-lg font-bold text-white mt-1 group-hover:text-cyan-300 transition-colors">PrivatGo Orang Tua</h3>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Aplikasi wali murid: Pantau kehadiran les anak, grafik nilai kuis & tugas, transparansi catatan perkembangan dari guru, dan chat konsultasi.
+          </p>
+        </div>
+        <div class="pt-2 flex items-center justify-between text-xs text-cyan-400 font-bold">
+          <span>Buka Aplikasi Orang Tua</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- App 4: Super Admin -->
+      <a href="./apps/admin/index.html" class="glass-card p-6 border border-purple-500/30 hover:border-purple-500 hover:scale-[1.02] transition-all no-underline block space-y-4 group">
+        <div class="w-14 h-14 rounded-2xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-3xl group-hover:bg-purple-600 transition-all text-white">
+          ⚡
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-1 text-[10px] uppercase font-bold text-purple-400 tracking-wider">
+            APK 4: com.privatgo.admin
+          </div>
+          <h3 class="text-lg font-bold text-white mt-1 group-hover:text-purple-300 transition-colors">PrivatGo Super Admin</h3>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Pusat kendali lembaga: Master data seluruh siswa, direktori tutor, matriks jadwal se-lembaga, analitik performa, dan audit log sistem.
+          </p>
+        </div>
+        <div class="pt-2 flex items-center justify-between text-xs text-purple-400 font-bold">
+          <span>Buka Aplikasi Admin</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- App 5: Finance & Billing -->
+      <a href="./apps/finance/index.html" class="glass-card p-6 border border-amber-500/30 hover:border-amber-500 hover:scale-[1.02] transition-all no-underline block space-y-4 group">
+        <div class="w-14 h-14 rounded-2xl bg-amber-600/20 border border-amber-500/40 flex items-center justify-center text-3xl group-hover:bg-amber-600 transition-all text-white">
+          💳
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-1 text-[10px] uppercase font-bold text-amber-400 tracking-wider">
+            APK 5: com.privatgo.finance
+          </div>
+          <h3 class="text-lg font-bold text-white mt-1 group-hover:text-amber-300 transition-colors">PrivatGo Finance & SPP</h3>
+          <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+            Aplikasi keuangan mandiri: Tagihan invoice SPP, verifikasi transfer, hitung honor tutor per sesi, kwitansi resmi PDF, dan pesan reminder WhatsApp.
+          </p>
+        </div>
+        <div class="pt-2 flex items-center justify-between text-xs text-amber-400 font-bold">
+          <span>Buka Aplikasi Keuangan</span>
+          <span>→</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-5 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div>PrivatGo Suite v1.0.0 • 5 Aplikasi Mandiri Terpisah</div>
+      <div class="text-slate-400 font-medium">Build Multi-APK & Multiplatform via GitHub Actions</div>
+    </div>
+  </footer>
+
 </body>
 </html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>PrivatGo Admin - Pusat Kendali Lembaga Les</title>
+  <meta name="theme-color" content="#7C3AED" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="../../src/styles/custom.css" />
+  <style>
+    body {
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .bottom-nav-blur {
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
+  <!-- Top Native App Bar -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md px-4 py-3 border-b border-slate-800/80 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center font-black text-white shadow-md">
+        ADM
+      </div>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <h1 class="text-sm font-bold text-white">Super Admin</h1>
+          <span class="text-[10px] bg-purple-500/20 text-purple-300 font-bold px-2 py-0.5 rounded-full border border-purple-500/30">Owner</span>
+        </div>
+        <p class="text-[11px] text-slate-400">Pusat Kendali Operasional</p>
+      </div>
+    </div>
+
+    <!-- Quick Badge -->
+    <div class="flex items-center gap-1 bg-purple-500/10 border border-purple-500/30 px-2.5 py-1 rounded-full text-purple-300 font-bold text-xs">
+      <span>⚡</span> 18 Siswa Aktif
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main id="app-view" class="flex-1 px-4 py-4 pb-24 max-w-2xl mx-auto w-full"></main>
+
+  <!-- Bottom Native Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bottom-nav-blur border-t border-slate-800/80 py-2 px-3 max-w-md mx-auto sm:rounded-t-2xl shadow-2xl">
+    <div class="flex items-center justify-around">
+      <button onclick="window.setTab('home')" id="tab-btn-home" class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all text-purple-400 font-bold">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span class="text-[10px]">Overview</span>
+      </button>
+
+      <button onclick="window.setTab('students')" id="tab-btn-students" class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all text-slate-400 hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <span class="text-[10px] font-medium">Siswa</span>
+      </button>
+
+      <button onclick="window.setTab('tutors')" id="tab-btn-tutors" class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all text-slate-400 hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span class="text-[10px] font-medium">Tutor</span>
+      </button>
+
+      <button onclick="window.setTab('sessions')" id="tab-btn-sessions" class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all text-slate-400 hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="text-[10px] font-medium">Jadwal</span>
+      </button>
+    </div>
+  </nav>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

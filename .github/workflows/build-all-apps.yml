@@ -1,0 +1,102 @@
+name: Build 5 Separate Android APKs & Windows Desktop
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+jobs:
+  build-android-apps:
+    name: Build 5 Dedicated Android APKs
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app:
+          - name: PrivatGo-Siswa
+            appId: com.privatgo.student
+            appName: "PrivatGo Siswa"
+            webDir: apps/student
+          - name: PrivatGo-Tutor
+            appId: com.privatgo.tutor
+            appName: "PrivatGo Tutor"
+            webDir: apps/tutor
+          - name: PrivatGo-OrangTua
+            appId: com.privatgo.parent
+            appName: "PrivatGo Orang Tua"
+            webDir: apps/parent
+          - name: PrivatGo-Admin
+            appId: com.privatgo.admin
+            appName: "PrivatGo Super Admin"
+            webDir: apps/admin
+          - name: PrivatGo-Finance
+            appId: com.privatgo.finance
+            appName: "PrivatGo Finance"
+            webDir: apps/finance
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Setup Gradle 8.4
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.4
+
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Configure Capacitor for ${{ matrix.app.name }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            const cap = {
+              appId: "${{ matrix.app.appId }}",
+              appName: "${{ matrix.app.appName }}",
+              webDir: "${{ matrix.app.webDir }}",
+              bundledWebRuntime: false
+            };
+            fs.writeFileSync("capacitor.config.json", JSON.stringify(cap, null, 2));
+          '
+
+      - name: Sync Capacitor Android
+        run: npx cap sync android || true
+
+      - name: Compile Dedicated APK
+        working-directory: android
+        run: gradle assembleDebug
+
+      - name: Rename & Prepare APK
+        run: |
+          mkdir -p output-apks
+          cp android/app/build/outputs/apk/debug/app-debug.apk output-apks/${{ matrix.app.name }}.apk
+
+      - name: Upload Single APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.app.name }}-APK
+          path: output-apks/${{ matrix.app.name }}.apk
+          retention-days: 30
+
+      - name: Attach to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          files: output-apks/${{ matrix.app.name }}.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

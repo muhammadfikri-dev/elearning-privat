@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>PrivatGo Finance - Manajemen Keuangan & SPP Les</title>
+  <meta name="theme-color" content="#F59E0B" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="../../src/styles/custom.css" />
+  <style>
+    body {
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .bottom-nav-blur {
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
+  <!-- Top Native App Bar -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md px-4 py-3 border-b border-slate-800/80 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center font-black text-white shadow-md">
+        💰
+      </div>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <h1 class="text-sm font-bold text-white">PrivatGo Finance</h1>
+          <span class="text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2 py-0.5 rounded-full border border-amber-500/30">SPP & Honor</span>
+        </div>
+        <p class="text-[11px] text-slate-400">Aplikasi Keuangan Terpisah</p>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full text-emerald-400 font-bold text-xs">
+      <span>💵</span> Rp 28.5jt
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main id="app-view" class="flex-1 px-4 py-4 pb-24 max-w-2xl mx-auto w-full"></main>
+
+  <!-- Bottom Native Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bottom-nav-blur border-t border-slate-800/80 py-2 px-3 max-w-md mx-auto sm:rounded-t-2xl shadow-2xl">
+    <div class="flex items-center justify-around">
+      <button onclick="window.setTab('home')" id="tab-btn-home" class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all text-amber-400 font-bold">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span class="text-[10px]">Dashboard</span>
+      </button>
+
+      <button onclick="window.setTab('invoices')" id="tab-btn-invoices" class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all text-slate-400 hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"/></svg>
+        <span class="text-[10px] font-medium">Tagihan</span>
+      </button>
+
+      <button onclick="window.setTab('payroll')" id="tab-btn-payroll" class="flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all text-slate-400 hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        <span class="text-[10px] font-medium">Gaji Tutor</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Global Modal Container -->
+  <div id="global-modal-container"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
