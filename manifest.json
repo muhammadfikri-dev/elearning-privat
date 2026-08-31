@@ -1,0 +1,21 @@
+{
+  "name": "PrivatGo - Platform E-Learning & Les Privat Terpadu",
+  "short_name": "PrivatGo",
+  "description": "Aplikasi E-Learning & Les Privat Modern Terpadu untuk Siswa, Guru, Orang Tua, dan Admin",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "assets/icons/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

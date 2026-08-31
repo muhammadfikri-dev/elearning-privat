@@ -1,0 +1,17 @@
+{
+  "appId": "com.privatgo.elearning",
+  "appName": "PrivatGo E-Learning",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#1E1B4B",
+      "showSpinner": true,
+      "spinnerColor": "#6366F1"
+    }
+  }
+}

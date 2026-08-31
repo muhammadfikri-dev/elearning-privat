@@ -1,0 +1,71 @@
+{
+  "name": "privatgo-elearning-suite",
+  "version": "1.0.0",
+  "description": "Aplikasi E-Learning & Les Privat Modern Terpadu (Siswa, Tutor, Ortu, Admin, & Finance App) dengan Multiplatform Build untuk Web, Android APK, dan Windows EXE",
+  "main": "electron/main.js",
+  "author": "PrivatGo Team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "start": "npx serve dist -l 3000",
+    "build": "vite build",
+    "preview": "vite preview",
+    "cap:sync": "cap sync",
+    "cap:android": "cap open android",
+    "build:android": "npm run build && cap sync android",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:start": "electron .",
+    "package:win": "npm run build && electron-builder --win --x64",
+    "package:win-portable": "npm run build && electron-builder --win portable --x64",
+    "package:all": "npm run build && electron-builder -mwl"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "vite": "^5.4.2"
+  },
+  "build": {
+    "appId": "com.privatgo.elearning",
+    "productName": "PrivatGo E-Learning",
+    "copyright": "Copyright © 2026 PrivatGo",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "index.html",
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PrivatGo E-Learning"
+    }
+  }
+}
