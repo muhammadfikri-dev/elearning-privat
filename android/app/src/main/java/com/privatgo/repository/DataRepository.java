@@ -1,37 +1,37 @@
 package com.privatgo.repository;
 
-import com.privatgo.models.Course;
-import com.privatgo.models.Schedule;
-import java.util.ArrayList;
+import android.content.Context;
+import com.privatgo.database.PrivatGoDatabaseHelper;
+import com.privatgo.models.*;
 import java.util.List;
 
 public class DataRepository {
     private static DataRepository instance;
+    private PrivatGoDatabaseHelper dbHelper;
 
-    private List<Course> courses = new ArrayList<>();
-    private List<Schedule> schedules = new ArrayList<>();
-
-    private DataRepository() {
-        seedData();
+    private DataRepository(Context context) {
+        dbHelper = PrivatGoDatabaseHelper.getInstance(context);
     }
 
-    public static synchronized DataRepository getInstance() {
+    public static synchronized DataRepository getInstance(Context context) {
         if (instance == null) {
-            instance = new DataRepository();
+            instance = new DataRepository(context);
         }
         return instance;
     }
 
-    private void seedData() {
-        courses.add(new Course("crs_1", "Matematika IPA & UTBK SNBT", "SMA / SNBT", "Kak Sarah Amalia, M.Sc", 65, 9, 14));
-        courses.add(new Course("crs_2", "Fisika Mekanika & Listrik", "SMA / SNBT", "Kak Sarah Amalia, M.Sc", 60, 6, 10));
-        courses.add(new Course("crs_3", "English Academic IELTS", "Bahasa", "Kak Budi Prasetyo, S.Pd", 83, 10, 12));
-        courses.add(new Course("crs_4", "Python Programming", "Coding", "Kak Amanda Clarissa, B.Eng", 75, 12, 16));
-
-        schedules.add(new Schedule("sch_1", "Turunan & Maksimum Minimum", "Matematika SMA", "Kak Sarah Amalia, M.Sc", "Kevin Pratama", "Besok (02 Sep)", "16:00 - 17:30 WIB", "Google Meet", "https://meet.google.com/abc-privat-sarah", "Siapkan modul kalkulus halaman 45.", "upcoming"));
-        schedules.add(new Schedule("sch_2", "Listrik Dinamis & Kirchhoff", "Fisika SMA", "Kak Sarah Amalia, M.Sc", "Kevin Pratama", "Jumat, 04 Sep", "19:00 - 20:30 WIB", "Zoom Online", "https://zoom.us/j/9876543210", "Membahas rangkaian 2 loop.", "upcoming"));
-    }
-
-    public List<Course> getCourses() { return courses; }
-    public List<Schedule> getSchedules() { return schedules; }
+    public List<Course> getCourses() { return dbHelper.getAllCourses(); }
+    public List<Schedule> getSchedules() { return dbHelper.getAllSchedules(); }
+    public void addSchedule(Schedule s) { dbHelper.insertSchedule(s); }
+    public List<Quiz> getQuizzes() { return dbHelper.getAllQuizzes(); }
+    public void saveQuizScore(String quizId, int score) { dbHelper.updateQuizScore(quizId, score); }
+    public List<Assignment> getAssignments() { return dbHelper.getAllAssignments(); }
+    public void gradeAssignment(String assignmentId, int score, String feedback) { dbHelper.updateAssignmentGrade(assignmentId, score, feedback); }
+    public void submitAssignment(String assignmentId, String submissionText) { dbHelper.submitAssignment(assignmentId, submissionText); }
+    public List<Material> getMaterials() { return dbHelper.getAllMaterials(); }
+    public List<Student> getStudents() { return dbHelper.getAllStudents(); }
+    public List<Tutor> getTutors() { return dbHelper.getAllTutors(); }
+    public List<Invoice> getInvoices() { return dbHelper.getAllInvoices(); }
+    public void payInvoice(String invoiceId) { dbHelper.markInvoicePaid(invoiceId); }
+    public List<Payroll> getPayroll() { return dbHelper.getAllPayroll(); }
 }

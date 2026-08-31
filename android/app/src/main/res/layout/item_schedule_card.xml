@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/bg_card"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:strokeColor="@color/border_glass"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_schedule_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Akan Datang"
+                android:textColor="@color/accent_emerald"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="@drawable/ic_launcher_background"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_schedule_datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Besok • 16:00 - 17:30 WIB"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_schedule_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Turunan Fungsi &amp; Nilai Ekstrim"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tv_schedule_participants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tutor: Kak Sarah Amalia • Murid: Kevin Pratama"
+            android:textColor="@color/primary_brand_light"
+            android:textSize="11sp"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/tv_schedule_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Catatan: Siapkan modul kalkulus halaman 45."
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:background="@color/bg_dark"
+            android:padding="8dp"
+            android:layout_marginTop="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_open_meet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masuk Ruang Kelas Online (Google Meet)"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_brand"
+            app:icon="@drawable/ic_video"
+            app:cornerRadius="12dp"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
