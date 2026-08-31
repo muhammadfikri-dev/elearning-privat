@@ -1,2 +1,4 @@
 include ':app'
 rootProject.name = 'PrivatGo E-Learning'
+
+apply from: 'capacitor.settings.gradle'
